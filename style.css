@@ -1,0 +1,13 @@
+* {
+    box-sizing: border-box;
+}
+
+
+img {
+    max-width: 25%;
+}
+
+.item-wrapper {
+    display: flex;
+    gap: 10px;
+}
