@@ -1,11 +1,5 @@
-const apiKey = 'AIzaSyBhbkOrguHeQUPXzTTuD-i2bEFnO_XCqUU';
-const youtubeAPIUrl = 'https://www.googleapis.com/youtube/v3/search';
-
-
 function displayResult(list) {
     const container = document.getElementById('results');
-
-    console.log(list);
 
     list.forEach(item => {
             container.innerHTML += `
@@ -27,10 +21,10 @@ document.getElementsByTagName
 const searchForm = document.getElementById('searchForm');
 searchForm.addEventListener('submit', e => {
     e.preventDefault();
+    
     const query = document.getElementById('searchQuery').value;
-    const url = `${youtubeAPIUrl}?part=snippet&q=${query}&key=${apiKey}`;
 
-    fetch(url)
+    fetch(`http://localhost:5000/search?query=${query}`)
         .then(response => response.json())
         .then(result => displayResult(result.items))
 });
